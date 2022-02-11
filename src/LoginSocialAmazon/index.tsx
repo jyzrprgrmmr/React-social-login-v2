@@ -5,12 +5,12 @@
  *
  */
 import React, {
+  forwardRef,
   memo,
-  useEffect,
-  useState,
   useCallback,
+  useEffect,
   useImperativeHandle,
-  forwardRef
+  useState
 } from 'react'
 import { IResolveParams, objectType, TypeCrossFunction } from '../'
 
@@ -31,7 +31,7 @@ interface Props {
 
 const JS_SRC = 'https://assets.loginwithamazon.com/sdk/na/login1.js'
 const SCRIPT_ID = 'amazon-login'
-const _window = window as any
+const _window = typeof window !== undefined ? (window as any) : undefined
 
 export const LoginSocialAmazon = forwardRef(
   (
